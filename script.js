@@ -56,4 +56,34 @@ document.addEventListener('DOMContentLoaded', () => {
         element.style.transition = 'opacity 0.5s, transform 0.5s';
         observer.observe(element);
     });
+
+    // Contact form handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', { name, email, subject, message });
+
+            // Show success message (you can customize this)
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+    }
+
+    // Animate contact info items
+    const contactItems = document.querySelectorAll('.info-item');
+    contactItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.5s, transform 0.5s';
+        observer.observe(item);
+    });
 });
